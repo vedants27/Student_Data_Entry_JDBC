@@ -64,6 +64,18 @@ class Main {
           }
           break;
 
+                  case 4: // Search Student by Name
+          System.out.print("Enter Name to search: ");
+          name = scan.nextLine();
+          Student foundByName = operations.searchByName(name);
+          if (foundByName != null) {
+            foundByName.display();
+          } else {
+            System.out.println("Student not found.");
+          }
+          break;
+
+
 
 
 
