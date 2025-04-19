@@ -33,4 +33,20 @@ class Main {
       }
 
       switch (choice) {
+                  case 1: // Add Student
+          System.out.print("Enter Name: ");
+          String name = scan.nextLine();
+          System.out.print("Enter PRN: ");
+          long prn = Long.parseLong(scan.nextLine());
+          System.out.print("Enter Branch: ");
+          String branch = scan.nextLine();
+          System.out.print("Enter Batch: ");
+          String batch = scan.nextLine();
+          System.out.print("Enter CGPA: ");
+          double cgpa = Double.parseDouble(scan.nextLine());
+
+          Student student = new Student(prn, name, branch, batch, cgpa);
+          operations.addStudent(student);
+          break;
+
 
