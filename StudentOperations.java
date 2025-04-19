@@ -72,6 +72,21 @@ public class StudentOperations {
         }
         return null;
     }
+        public Student searchByName(String name) {
+        if (!isConnected()) return null;
+        try (PreparedStatement stmt = conn.prepareStatement("SELECT * FROM students WHERE name = ?")) {
+            stmt.setString(1, name);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return new Student(rs.getLong("prn"), name, rs.getString("branch"), rs.getString("batch"),
+                        rs.getDouble("cgpa"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return null;
+    }
+
 
 
 
