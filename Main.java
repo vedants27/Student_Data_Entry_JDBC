@@ -84,6 +84,22 @@ class Main {
           }
           break;
 
+          case 6: // Update Student
+          System.out.print("Enter PRN to update: ");
+          prn = Long.parseLong(scan.nextLine());
+          System.out.print("Enter New Name: ");
+          name = scan.nextLine();
+          System.out.print("Enter New Branch: ");
+          branch = scan.nextLine();
+          System.out.print("Enter New Batch: ");
+          batch = scan.nextLine();
+          System.out.print("Enter New CGPA: ");
+          cgpa = Double.parseDouble(scan.nextLine());
+
+          operations.updateStudent(new Student(prn, name, branch, batch, cgpa));
+          break;
+
+
 
 
 
