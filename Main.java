@@ -104,6 +104,14 @@ class Main {
           prn = Long.parseLong(scan.nextLine());
           operations.deleteStudent(prn);
           break;
+                  default:
+          System.out.println("Invalid choice! Please enter a valid option.");
+      }
+    }
+    scan.close();
+  }
+}
+
 
 
 
