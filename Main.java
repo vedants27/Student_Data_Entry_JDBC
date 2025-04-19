@@ -64,7 +64,7 @@ class Main {
           }
           break;
 
-                  case 4: // Search Student by Name
+          case 4: // Search Student by Name
           System.out.print("Enter Name to search: ");
           name = scan.nextLine();
           Student foundByName = operations.searchByName(name);
@@ -74,6 +74,16 @@ class Main {
             System.out.println("Student not found.");
           }
           break;
+
+          case 5: // Search Student by Position
+          System.out.print("Enter position (index starts from 0): ");
+          int position = Integer.parseInt(scan.nextLine());
+          Student foundByPosition = operations.searchByPosition(position);
+          if (foundByPosition != null) {
+            foundByPosition.display();
+          }
+          break;
+
 
 
 
