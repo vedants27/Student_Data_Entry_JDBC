@@ -58,6 +58,21 @@ public class StudentOperations {
             System.out.println("Error displaying students: " + e.getMessage());
         }
     }
+        public Student searchByPRN(long prn) {
+        if (!isConnected()) return null;
+        try (PreparedStatement stmt = conn.prepareStatement("SELECT * FROM students WHERE prn = ?")) {
+            stmt.setLong(1, prn);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return new Student(prn, rs.getString("name"), rs.getString("branch"), rs.getString("batch"),
+                        rs.getDouble("cgpa"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return null;
+    }
+
 
 
 
