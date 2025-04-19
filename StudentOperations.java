@@ -26,5 +26,21 @@ public class StudentOperations {
         }
         return true;
     }
+        public void addStudent(Student student) {
+        if (!isConnected()) return;
+        String sql = "INSERT INTO students (prn, name, branch, batch, cgpa) VALUES (?, ?, ?, ?, ?)";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setLong(1, student.getPRN());
+            stmt.setString(2, student.getName());
+            stmt.setString(3, student.getBranch());
+            stmt.setString(4, student.getBatch());
+            stmt.setDouble(5, student.getCGPA());
+            stmt.executeUpdate();
+            System.out.println("Student added successfully.");
+        } catch (SQLException e) {
+            System.out.println("Error adding student: " + e.getMessage());
+        }
+    }
+
 
 
