@@ -99,6 +99,22 @@ public class StudentOperations {
         }
         return null;
     }
+        public void updateStudent(Student student) {
+        if (!isConnected()) return;
+        String sql = "UPDATE students SET name=?, branch=?, batch=?, cgpa=? WHERE prn=?";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, student.getName());
+            stmt.setString(2, student.getBranch());
+            stmt.setString(3, student.getBatch());
+            stmt.setDouble(4, student.getCGPA());
+            stmt.setLong(5, student.getPRN());
+            int updated = stmt.executeUpdate();
+            System.out.println(updated > 0 ? "Updated successfully." : "Student not found.");
+        } catch (SQLException e) {
+            System.out.println("Error updating student: " + e.getMessage());
+        }
+    }
+
 
 
 
