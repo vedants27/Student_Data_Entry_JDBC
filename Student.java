@@ -27,4 +27,9 @@ public class Student {
 
     public double getCGPA() { return cgpa; }
     public void setCGPA(double cgpa) { this.cgpa = cgpa; }
+    public void display() {
+        System.out.printf("\nPRN: %d | Name: %s | Branch: %s | Batch: %s | CGPA: %.2f\n",
+                prn, name, branch, batch, cgpa);
+    }
+}
 
