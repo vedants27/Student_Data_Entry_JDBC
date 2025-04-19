@@ -19,4 +19,12 @@ public class StudentOperations {
             System.out.println("Connection error: " + e.getMessage());
         }
     }
+        private boolean isConnected() {
+        if (conn == null) {
+            System.out.println("Database connection not available.");
+            return false;
+        }
+        return true;
+    }
+
 
